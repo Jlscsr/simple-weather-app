@@ -22,7 +22,7 @@ This is a simple weather application that I built to practice using APIs. It was
 1. Clone this repository
 
 ```bash
-git clone https://github.com/[your-username]/weather-app.git
+git clone https://github.com/Jlscsr/pondev-weather-api.git
 ```
 
 2. Install dependencies
