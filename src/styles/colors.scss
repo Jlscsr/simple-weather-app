@@ -1,0 +1,26 @@
+// Import the "colorAccent" function from the "functions.scss" file
+@import "./functions.scss";
+
+// Loop through numbers 1 to 4
+@for $i from 1 through 4 {
+  // Define a text color class with accent color from the "colorAccent" function
+  .textAccent-#{$i} {
+    color: colorAccent(a, $i);
+  }
+
+  // Define a background color class with accent color from the "colorAccent" function
+  .bgAccent-#{$i} {
+    background-color: colorAccent(a, $i);
+  }
+
+  // Define a border color class with accent color from the "colorAccent" function
+  .borderAccent-#{$i} {
+    border: 1px solid colorAccent(a, $i);
+  }
+
+  // Define a hover color class with accent color from the "colorAccent" function
+  .hoverAccent-#{$i}:hover {
+    color: colorAccent(a, $i);
+    transition: 0.2s ease-in-out;
+  }
+}

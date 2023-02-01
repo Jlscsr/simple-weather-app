@@ -1,0 +1,18 @@
+// LINES
+.outline {
+  outline: 1px solid red;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.underline-h:hover {
+  text-decoration: underline;
+  transition: 0.2s ease-in-out;
+}
+
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+}
