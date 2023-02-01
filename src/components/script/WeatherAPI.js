@@ -3,7 +3,7 @@ import { ref } from "vue";
 
 export default {
   setup() {
-    const API_KEY = "050ee986e0cb4cd0a074922ad3176902";
+    const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
     let searchedCountry = ref(null);
     let isSearched = ref(false);
     let weatherInfo = ref({
@@ -24,17 +24,19 @@ export default {
      * @return {Object} - An object containing weather information for the given country.
      */
     const fetchWeather = async (country) => {
-      isSearched.value = true;
       let url = `https://api.openweathermap.org/data/2.5/weather?q=${country}&appid=${API_KEY}`;
 
       try {
         const response = await axios.get(url);
+        isSearched.value = true;
         displayInfo(response.data);
         searchedCountry.value = null;
       } catch (error) {
-        alert(
-          "Error: The country could not be found. Please check the spelling and try again."
-        );
+        if (error.response && error.response.status === 404) {
+          alert("The requested country could not be found.");
+        } else {
+          alert(error);
+        }
       }
     };
 
