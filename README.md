@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a simple weather application that I built to practice using APIs. It was created using Vue.js, Vite, Scss, Bootstrap and Axios, and provides current weather information for a location of my choice.
+This is a simple weather application that I built to practice using APIs. It was created using Vue.js, Vite, Scss, Bootstrap and Axios, and provides current weather information for a location of your choice.
 
 ## Features
 
