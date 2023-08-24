@@ -37,22 +37,9 @@ npm install
 npm run dev
 ```
 
-## Obtaining an API Key from OpenWeatherMap
-1. Go to the OpenWeatherMap website at https://openweathermap.org/
-2. Click on the "Sign up" button and create an account.
-3. After logging in, go to the API keys section and generate a new API Key.
+## You can see the App here
+[Weather App](https://jlscsr.github.io/simple-weather-app/)
 
-## Using the API Key
-1. In your project directory, find a file named `.env`
-2. Open the `.env` file and add the following line, adding your API key in "VITE_WEATHER_API_KEY" variable with the API Key you obtained from OpenWeatherMap:
-
-```
-VITE_WEATHER_API_KEY=<your_api_key>
-```
-
-3. Save the `.env` file.
-
-That's it! Your application should now be able to use the API Key from the `.env` file to make requests to the OpenWeatherMap API.
 
 ## Thank You
 
