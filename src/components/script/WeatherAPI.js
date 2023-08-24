@@ -3,9 +3,10 @@ import { ref } from "vue";
 
 export default {
   setup() {
-    const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+    const API_KEY = "f2ab635b8978131c7e646567c54dbf2a";
     let searchedCountry = ref(null);
     let isSearched = ref(false);
+    let loadingState = ref(false);
     let weatherInfo = ref({
       countryName: null,
       cloud: null,
@@ -15,7 +16,7 @@ export default {
     });
 
     /**
-     * fetchWeather
+     * fetchWeatherInfo
      *
      * A function that fetches the weather information of a given country.
      *
@@ -23,25 +24,28 @@ export default {
      *
      * @return {Object} - An object containing weather information for the given country.
      */
-    const fetchWeather = async (country) => {
+    const fetchWeatherInfo = async (country) => {
       let url = `https://api.openweathermap.org/data/2.5/weather?q=${country}&appid=${API_KEY}`;
+      loadingState.value = true;
 
       try {
         const response = await axios.get(url);
         isSearched.value = true;
-        displayInfo(response.data);
-        searchedCountry.value = null;
+        displayWeatherInfo(response.data);
       } catch (error) {
         if (error.response && error.response.status === 404) {
           alert("The requested country could not be found.");
         } else {
-          alert(error);
+          alert("Something went wrong.");
         }
+      } finally {
+        loadingState.value = false;
+        searchedCountry.value = null;
       }
     };
 
     /**
-     * displayInfo
+     * displayWeatherInfo
      *
      * A function that displays the weather information of a given country.
      *
@@ -49,7 +53,7 @@ export default {
      *
      * @return {Object} - An object containing the displayed weather information.
      */
-    const displayInfo = (data) => {
+    const displayWeatherInfo = (data) => {
       let { name } = data;
       let { description, icon } = data.weather[0];
       let { humidity, temp } = data.main;
@@ -67,6 +71,12 @@ export default {
       });
     };
 
-    return { searchedCountry, isSearched, weatherInfo, fetchWeather };
+    return {
+      searchedCountry,
+      isSearched,
+      loadingState,
+      weatherInfo,
+      fetchWeatherInfo,
+    };
   },
 };

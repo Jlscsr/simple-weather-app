@@ -1,7 +1,7 @@
 {
-  "name": "pondev-weather-api",
+  "name": "simple-weather-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@jridgewell/sourcemap-codec": "^1.4.15",
     "axios": "^1.2.6",
     "bootstrap": "^5.2.3",
     "vue": "^3.2.45"
